@@ -1,5 +1,7 @@
 package com.example.abhijithneilabraham.firebaseandroid;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.Manifest;
@@ -14,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,6 +67,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //the firebase objects for storage and database
     StorageReference mStorageReference;
     DatabaseReference mDatabaseReference;
+    ListView listView;
+    Context context;
+    // String filename = "myfile";
+    String userPath="gs://fir-android-c7a0d.appspot.com";
+    String fileName="Summary.pdf";
+    String DOWNLOAD_DIR="Download/";
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
+    StorageReference ref;
 
 
     @Override
@@ -182,7 +194,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
 
     }
+    private void download() {
 
+        storageReference=firebaseStorage.getInstance().getReference();
+        ref=storageReference.child(email.getText().toString()+"/"+"Summary.pdf");
+        //StorageReference storageReference = storage.getReference();
+        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                String url=uri.toString();
+                downloadFiles(MainActivity.this,"Summary",".pdf",DOWNLOAD_DIR,url);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+        // StorageReference  islandRef = storage.ch ("/Summary.pdf");
+        //  StorageReference downloadRef = storageRef.child(userPath+fileName);
+        //    final File fileNameOnDevice = new File(DOWNLOAD_DIR+"/"+fileName);
+
+
+    }
+    public  void downloadFiles(Context context,String fileName,String FileExtension,String Destinationdir,String url){
+        DownloadManager downloadManager=(DownloadManager)context.getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri=Uri.parse(url);
+        DownloadManager.Request request=new DownloadManager.Request(uri);
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context,Destinationdir,fileName+FileExtension);
+        downloadManager.enqueue(request);
+
+
+    }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -191,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 postData();
                 break;
             case R.id.textViewUploads:
-                startActivity(new Intent(this, ViewUploadsActivity.class));
+                download();
                 break;
         }
     }
