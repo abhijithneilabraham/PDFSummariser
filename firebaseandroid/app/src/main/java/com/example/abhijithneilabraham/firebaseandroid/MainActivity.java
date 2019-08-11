@@ -56,8 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textViewStatus;
     TextView textView;
     EditText editTextFilename;
-    EditText foldername;
+
     ProgressBar progressBar;
+    EditText email;
 
 
     //the firebase objects for storage and database
@@ -79,8 +80,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView=(TextView)findViewById(R.id.textView);
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
-        foldername=(EditText)findViewById(R.id.foldername);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
+        email=(EditText)findViewById(R.id.email);
 
 
         //attaching listeners to views
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void postData() {
         // Create a new HttpClient and Post Header
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://vaulted-acolyte-241004.appspot.com/abhijith/";
+        String url ="https://vaulted-acolyte-241004.appspot.com/"+email.getText().toString()+"/";
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -152,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //so we are not explaining it
     private void uploadFile(Uri data) {
         progressBar.setVisibility(View.VISIBLE);
-        StorageReference sRef = mStorageReference.child(foldername.getText().toString()+"/"+editTextFilename.getText().toString() + ".pdf");
+        StorageReference sRef = mStorageReference.child(email.getText().toString()+"/"+editTextFilename.getText().toString() + ".pdf");
         sRef.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @SuppressWarnings("VisibleForTests")
