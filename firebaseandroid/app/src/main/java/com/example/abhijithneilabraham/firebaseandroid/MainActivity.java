@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void postData() {
         // Create a new HttpClient and Post Header
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://vaulted-acolyte-241004.appspot.com/"+email.getText().toString()+"/";
+        String url ="http://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -197,13 +197,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void download() {
 
         storageReference=firebaseStorage.getInstance().getReference();
-        ref=storageReference.child(email.getText().toString()+"/"+"Summary.pdf");
+        ref=storageReference.child(email.getText().toString()+"/"+"final.pdf");
         //StorageReference storageReference = storage.getReference();
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 String url=uri.toString();
-                downloadFiles(MainActivity.this,"Summary",".pdf",DOWNLOAD_DIR,url);
+                downloadFiles(MainActivity.this,"final",".pdf",DOWNLOAD_DIR,url);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
