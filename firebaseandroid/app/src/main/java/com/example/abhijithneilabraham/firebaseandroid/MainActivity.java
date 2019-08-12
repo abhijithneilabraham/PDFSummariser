@@ -232,10 +232,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.buttonUploadFile:
                 getPDF();
-                postData();
                 break;
             case R.id.textViewUploads:
                 download();
+                postData();
                 break;
         }
     }
