@@ -7,14 +7,11 @@
     tools:context=".MainActivity">
 
 
-    <TextView
+    <EditText
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="73dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
          />
 
     <EditText
@@ -49,7 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="87dp"
         android:orientation="vertical">
 
 
@@ -69,16 +67,29 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
 
-        <TextView
+        <Button
             android:id="@+id/textViewUploads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+
+
             android:text="Do the Summary"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="@color/colorPrimaryDark" />
 
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/downloadfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="29dp"
+        android:text="download"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
     </RelativeLayout>
 

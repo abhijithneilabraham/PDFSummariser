@@ -57,11 +57,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //these are the views
     TextView textViewStatus;
-    TextView textView;
+    EditText textView;
     EditText editTextFilename;
 
     ProgressBar progressBar;
     EditText email;
+
 
 
     //the firebase objects for storage and database
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
         //getting the views
-        textView=(TextView)findViewById(R.id.textView);
+        textView=(EditText) findViewById(R.id.textView);
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //attaching listeners to views
         findViewById(R.id.buttonUploadFile).setOnClickListener(this);
         findViewById(R.id.textViewUploads).setOnClickListener(this);
+        findViewById(R.id.downloadfile).setOnClickListener(this);
     }
 
     //this function will get the pdf from the storage
@@ -123,7 +125,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void postData() {
         // Create a new HttpClient and Post Header
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
+
+        String url1 ="abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
+    final String url = url1.replaceAll("\\s+", "");
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -136,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                textView.setText("That didn't work!");
+                textView.setText(url);
             }
         });
 
@@ -234,9 +238,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 getPDF();
                 break;
             case R.id.textViewUploads:
-                download();
                 postData();
                 break;
+            case R.id.downloadfile:
+                download();
         }
     }
 }
