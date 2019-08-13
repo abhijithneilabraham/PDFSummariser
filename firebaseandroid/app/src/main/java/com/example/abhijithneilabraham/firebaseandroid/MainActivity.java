@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Create a new HttpClient and Post Header
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String url1 ="abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
-    final String url = url1.replaceAll("\\s+", "");
+    final   String url ="https://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
+  //  final String url = url1.replaceAll("\\s+", "");
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -135,12 +135,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        textView.setText("Response is: "+ response.substring(0,500));
+                        textView.setText("successful: ");
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                textView.setText(url);
+                textView.setText("Try again?");
             }
         });
 
@@ -201,13 +201,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void download() {
 
         storageReference=firebaseStorage.getInstance().getReference();
-        ref=storageReference.child(email.getText().toString()+"/"+"final.pdf");
+        ref=storageReference.child(email.getText().toString()+"/"+"final.txt");
         //StorageReference storageReference = storage.getReference();
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 String url=uri.toString();
-                downloadFiles(MainActivity.this,"final",".pdf",DOWNLOAD_DIR,url);
+                downloadFiles(MainActivity.this,"final",".txt",DOWNLOAD_DIR,url);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
