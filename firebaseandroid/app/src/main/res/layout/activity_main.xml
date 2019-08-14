@@ -7,13 +7,16 @@
     tools:context=".MainActivity">
 
 
-    <EditText
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-         />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="402dp"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <EditText
         android:id="@+id/email"
@@ -22,18 +25,21 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="66dp"
         android:hint="enter your email id"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
 
-        <EditText
-            android:id="@+id/editTextFileName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:hint="Enter a name for your file"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+    <EditText
+        android:id="@+id/editTextFileName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="153dp"
+        android:hint="Enter a name for your file"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <Button
             android:id="@+id/buttonUploadFile"
@@ -42,14 +48,6 @@
             android:layout_below="@id/editTextFileName"
             android:text="Upload PDF" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="87dp"
-        android:orientation="vertical">
 
 
         <ProgressBar
@@ -59,28 +57,33 @@
             android:layout_gravity="center_horizontal"
             android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/textViewStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No file selected"
-            android:textAlignment="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewUploads"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="15dp"
+        android:text="No file selected"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
 
-        <Button
-            android:id="@+id/textViewUploads"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/textViewUploads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
 
-            android:text="Do the Summary"
-            android:textAlignment="center"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-            android:textColor="@color/colorPrimaryDark" />
+        android:layout_above="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="-372dp"
+        android:text="Do the Summary"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimaryDark" />
 
-
-    </LinearLayout>
 
     <Button
         android:id="@+id/downloadfile"
@@ -88,8 +91,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="29dp"
+        android:layout_marginStart="0dp"
 
+        android:layout_marginBottom="0dp"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
     </RelativeLayout>
