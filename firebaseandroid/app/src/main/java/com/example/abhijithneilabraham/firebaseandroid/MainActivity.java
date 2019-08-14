@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textViewStatus;
     EditText textView;
     EditText editTextFilename;
-
+    Button downloadbutton;
     ProgressBar progressBar;
     EditText email;
 
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         //getting firebase objects
+        downloadbutton=(Button)findViewById(R.id.downloadfile);
         mStorageReference = FirebaseStorage.getInstance().getReference();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
@@ -96,11 +98,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         email=(EditText)findViewById(R.id.email);
 
-
+downloadbutton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        download();
+    }
+});
         //attaching listeners to views
         findViewById(R.id.buttonUploadFile).setOnClickListener(this);
         findViewById(R.id.textViewUploads).setOnClickListener(this);
-        findViewById(R.id.downloadfile).setOnClickListener(this);
+       // findViewById(R.id.downloadfile).setOnClickListener(this);
     }
 
     //this function will get the pdf from the storage
@@ -126,8 +133,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Create a new HttpClient and Post Header
         RequestQueue queue = Volley.newRequestQueue(this);
 
-    final   String url ="https://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
-  //  final String url = url1.replaceAll("\\s+", "");
+        final   String url ="https://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
+        //  final String url = url1.replaceAll("\\s+", "");
 
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -135,7 +142,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        textView.setText("successful: ");
+                        textView.setText(response.substring(0));
+                        downloadbutton.setText("Download");
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -240,8 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.textViewUploads:
                 postData();
                 break;
-            case R.id.downloadfile:
-                download();
+
         }
     }
 }

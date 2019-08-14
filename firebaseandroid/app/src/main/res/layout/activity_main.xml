@@ -89,7 +89,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="29dp"
-        android:text="download"
+
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
     </RelativeLayout>
