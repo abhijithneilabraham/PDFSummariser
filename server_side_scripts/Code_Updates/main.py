@@ -20,6 +20,10 @@ app = Flask(__name__)
 
 @app.route("/<user>/<count>/")
 def my_form(user,count):
+    '''
+    ***To be run while making app or server side updates***
+    return "Server Maintainance"
+    '''
     filename1=str(user)+"/"+"test.pdf"
     print(filename1)
     print(user)
