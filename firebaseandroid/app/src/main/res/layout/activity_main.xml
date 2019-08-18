@@ -76,6 +76,7 @@
         android:layout_marginBottom="15dp"
         android:text="No file selected"
         android:textAlignment="center"
+        android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
     <Button
 
