@@ -78,15 +78,18 @@
         android:textAlignment="center"
         android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
     <Button
 
         android:id="@+id/buttonUploadFile"
-        android:layout_width="349dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextFileName"
 
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="136dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="123dp"
+        android:layout_marginEnd="0dp"
         android:background="@drawable/layout_bg"
         android:text="Upload PDF"
         android:textAlignment="center"
@@ -94,13 +97,14 @@
 
     <Button
         android:id="@+id/downloadfile"
-        android:layout_width="333dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="447dp"
+
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="449dp"
         android:background="@drawable/layout_bg"
         android:text="Download"
         android:textAlignment="center"
