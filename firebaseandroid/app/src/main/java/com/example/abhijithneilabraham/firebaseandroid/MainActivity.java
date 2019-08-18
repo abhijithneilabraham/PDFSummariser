@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //these are the views
     TextView textViewStatus;
-    TextView textView;
+
     EditText editTextFilename;
     Button downloadbutton;
     ProgressBar progressBar;
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
         //getting the views
-        textView=(TextView) findViewById(R.id.textView);
+
         textViewStatus = (TextView) findViewById(R.id.textViewStatus);
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);

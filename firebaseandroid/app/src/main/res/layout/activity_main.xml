@@ -2,106 +2,110 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="349dp"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="402dp"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="66dp"
-        android:hint="enter your email id"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="123dp"
+        android:hint="Enter your email id"
+        android:textAppearance="@style/MyEditTextStyle" />
 
 
     <EditText
         android:id="@+id/editTextFileName"
-        android:layout_width="match_parent"
+        android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="153dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="183dp"
+
         android:hint="Enter a name for your file"
+        android:textAppearance="@style/MyEditTextStyle" />
+
+    <TextView
+        android:layout_width="142dp"
+        android:layout_height="54dp"
+        android:id="@+id/wordtext"
+        android:layout_alignBottom="@+id/editTextFileName"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="-107dp"
+
+        android:text="Word Count :"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
-        <Button
-            android:id="@+id/buttonUploadFile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editTextFileName"
-            android:text="Upload PDF" />
+    <Spinner
+        android:id="@+id/wordcount"
+        style="@style/Animation.AppCompat.DropDownUp"
+        android:layout_width="179dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/wordtext"
+        android:layout_marginStart="170dp"
+        android:layout_marginBottom="11dp"
+        android:entries="@array/Word_Count_List"
+        android:prompt="@string/Word_Count"
+        android:spinnerMode="dropdown">
+
+    </Spinner>
 
 
 
-        <ProgressBar
-            android:id="@+id/progressbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/textViewStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+
         android:layout_marginStart="0dp"
         android:layout_marginBottom="15dp"
         android:text="No file selected"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+    <Button
 
+        android:id="@+id/buttonUploadFile"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFileName"
 
-
-
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="136dp"
+        android:background="@drawable/layout_bg"
+        android:text="Upload PDF"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/downloadfile"
-        android:layout_width="match_parent"
+        android:layout_width="333dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
 
-        android:layout_marginBottom="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="447dp"
+        android:background="@drawable/layout_bg"
+        android:text="Download"
         android:textAlignment="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/white" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="222dp"
-        android:text="Word Count" />
 
-    <Spinner
-        android:id="@+id/wordcount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="190dp"
-        android:entries="@array/Word_Count_List"
-        android:prompt="@string/Word_Count">
-
-    </Spinner>
-    </RelativeLayout>
+</RelativeLayout>
 
