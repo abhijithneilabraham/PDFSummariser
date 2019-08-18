@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">firebaseandroid</string>
+    <string name="Word_Count">Word Count</string>
+        <string-array name="Word_Count_List">
+            <item>200</item>
+            <item>300</item>
+            <item>500</item>
+            <item>750</item>
+            <item>1000</item>
+        </string-array>
 </resources>

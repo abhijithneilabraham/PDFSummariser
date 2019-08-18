@@ -21,6 +21,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Spinner;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -63,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button downloadbutton;
     ProgressBar progressBar;
     EditText email;
+    Spinner dropdown;
+    String Wordcount;
+
 
 
 
@@ -97,16 +101,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextFilename = (EditText) findViewById(R.id.editTextFileName);
         progressBar = (ProgressBar) findViewById(R.id.progressbar);
         email=(EditText)findViewById(R.id.email);
+        dropdown = (Spinner) findViewById(R.id.wordcount);
+
 
 downloadbutton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+        Wordcount=String.valueOf(dropdown.getSelectedItem());
+        Toast.makeText(getApplicationContext(),Wordcount,Toast.LENGTH_LONG).show();
         download();
     }
 });
         //attaching listeners to views
         findViewById(R.id.buttonUploadFile).setOnClickListener(this);
-        findViewById(R.id.textViewUploads).setOnClickListener(this);
+       // findViewById(R.id.textViewUploads).setOnClickListener(this);
        // findViewById(R.id.downloadfile).setOnClickListener(this);
     }
 
@@ -143,14 +151,14 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
-                        textView.setText(response.substring(0));
                         downloadbutton.setText("Download");
 
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                textView.setText("Try again?");
+
+                downloadbutton.setText("Download");
             }
         });
 
@@ -189,6 +197,7 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
                         textViewStatus.setText("File Uploaded Successfully");
 
                         Upload upload = new Upload("test.pdf", taskSnapshot.getStorage().getDownloadUrl().toString());
+                        postData();
                         mDatabaseReference.child(mDatabaseReference.push().getKey()).setValue(upload);
                     }
                 })
@@ -247,9 +256,7 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
             case R.id.buttonUploadFile:
                 getPDF();
                 break;
-            case R.id.textViewUploads:
-                postData();
-                break;
+
 
         }
     }

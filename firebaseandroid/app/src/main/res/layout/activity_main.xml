@@ -61,7 +61,6 @@
         android:id="@+id/textViewStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textViewUploads"
         android:layout_alignParentStart="true"
         android:layout_marginStart="0dp"
         android:layout_marginBottom="15dp"
@@ -70,19 +69,7 @@
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
 
-    <Button
-        android:id="@+id/textViewUploads"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-
-        android:layout_above="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="-372dp"
-        android:text="Do the Summary"
-        android:textAlignment="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimaryDark" />
 
 
     <Button
@@ -96,5 +83,25 @@
         android:layout_marginBottom="0dp"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="222dp"
+        android:text="Word Count" />
+
+    <Spinner
+        android:id="@+id/wordcount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="190dp"
+        android:entries="@array/Word_Count_List"
+        android:prompt="@string/Word_Count">
+
+    </Spinner>
     </RelativeLayout>
 
