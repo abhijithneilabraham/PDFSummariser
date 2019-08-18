@@ -104,11 +104,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dropdown = (Spinner) findViewById(R.id.wordcount);
 
 
+
 downloadbutton.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Wordcount=String.valueOf(dropdown.getSelectedItem());
-        Toast.makeText(getApplicationContext(),Wordcount,Toast.LENGTH_LONG).show();
+
+       // Toast.makeText(getApplicationContext(),Wordcount,Toast.LENGTH_LONG).show();
         download();
     }
 });
@@ -117,7 +118,20 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
        // findViewById(R.id.textViewUploads).setOnClickListener(this);
        // findViewById(R.id.downloadfile).setOnClickListener(this);
     }
+private void del(){
+    StorageReference delref=mStorageReference.child((email.getText().toString()+"/"+"final.txt"));
+    delref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void aVoid) {
 
+        }
+    }).addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(@NonNull Exception e) {
+
+        }
+    });
+}
     //this function will get the pdf from the storage
     private void getPDF() {
         //for greater than lolipop versions we need the permissions asked on runtime
@@ -140,8 +154,10 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
     public void postData() {
         // Create a new HttpClient and Post Header
         RequestQueue queue = Volley.newRequestQueue(this);
+        Wordcount=String.valueOf(dropdown.getSelectedItem());
+        del();
 
-        final   String url ="https://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/";
+        final   String url ="https://abhijithneilabraham.pythonanywhere.com/"+email.getText().toString()+"/"+Wordcount+"/";
 
         //  final String url = url1.replaceAll("\\s+", "");
 
@@ -165,6 +181,7 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
 // Add the request to the RequestQueue.
         queue.add(stringRequest);
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
