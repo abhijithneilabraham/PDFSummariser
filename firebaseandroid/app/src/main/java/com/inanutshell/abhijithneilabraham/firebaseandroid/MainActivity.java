@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Context context;
     // String filename = "myfile";
-    
+
     String DOWNLOAD_DIR="Download/";
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
@@ -235,7 +235,7 @@ private void del(){
             @Override
             public void onSuccess(Uri uri) {
                 String url=uri.toString();
-                downloadFiles(MainActivity.this,"final",".txt",DOWNLOAD_DIR,url);
+                downloadFiles(MainActivity.this,editTextFilename.getText().toString(),".txt",DOWNLOAD_DIR,url);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
