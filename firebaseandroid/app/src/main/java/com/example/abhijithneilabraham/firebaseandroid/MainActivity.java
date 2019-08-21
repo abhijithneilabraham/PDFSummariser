@@ -29,6 +29,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -82,14 +85,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     StorageReference ref;
-
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        MobileAds.initialize(this,
+                getString(R.string.admob_app_id));
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        // Display Banner ad
+        mAdView.loadAd(adRequest);
         //getting firebase objects
         downloadbutton=(Button)findViewById(R.id.downloadfile);
         mStorageReference = FirebaseStorage.getInstance().getReference();

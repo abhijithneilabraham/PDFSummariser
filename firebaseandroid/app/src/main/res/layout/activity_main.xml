@@ -7,15 +7,14 @@
     tools:context=".MainActivity">
 
 
-
     <EditText
         android:id="@+id/email"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="123dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="51dp"
         android:hint="Enter your email id"
         android:textAppearance="@style/MyEditTextStyle" />
 
@@ -26,19 +25,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="183dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="110dp"
 
         android:hint="Enter a name for your file"
         android:textAppearance="@style/MyEditTextStyle" />
 
     <TextView
+        android:id="@+id/wordtext"
         android:layout_width="142dp"
         android:layout_height="54dp"
-        android:id="@+id/wordtext"
         android:layout_alignBottom="@+id/editTextFileName"
         android:layout_marginStart="21dp"
-        android:layout_marginBottom="-107dp"
+        android:layout_marginBottom="-80dp"
 
         android:text="Words per page:"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
@@ -88,8 +87,8 @@
 
 
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="123dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="1dp"
         android:background="@drawable/layout_bg"
         android:text="Upload PDF"
         android:textAlignment="center"
@@ -104,12 +103,23 @@
         android:layout_alignParentTop="true"
 
         android:layout_marginStart="19dp"
-        android:layout_marginTop="449dp"
+        android:layout_marginTop="337dp"
         android:background="@drawable/layout_bg"
         android:text="Download"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@color/white" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/buttonUploadFile"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="4dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_id" />
 
 
 </RelativeLayout>

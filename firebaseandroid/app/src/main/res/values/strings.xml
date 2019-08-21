@@ -11,4 +11,8 @@
             <item>500</item>
             <item>700</item>
         </string-array>
+    <string name="admob_app_id">
+ca-app-pub-8148705147334852~3004389988</string>
+    <string name="admob_banner_id">
+ca-app-pub-8148705147334852/5171581847</string>
 </resources>
