@@ -1,6 +1,4 @@
-package com.example.abhijithneilabraham.firebaseandroid;
-
-import android.widget.EditText;
+package com.inanutshell.abhijithneilabraham.firebaseandroid;
 
 public class Constants {
     public static final String STORAGE_PATH_UPLOADS = "uploads/";

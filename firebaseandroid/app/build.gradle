@@ -4,7 +4,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.abhijithneilabraham.firebaseandroid"
+        applicationId "com.inanutshell.abhijithneilabraham.firebaseandroid"
         minSdkVersion 24
         targetSdkVersion 28
         versionCode 1

@@ -89,7 +89,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="94dp"
         android:layout_marginEnd="1dp"
-        android:background="@drawable/layout_bg"
+        android:background="@xml/layout_bg"
         android:text="Upload PDF"
         android:textAlignment="center"
         android:textColor="@color/white" />
@@ -104,7 +104,7 @@
 
         android:layout_marginStart="19dp"
         android:layout_marginTop="337dp"
-        android:background="@drawable/layout_bg"
+        android:background="@xml/layout_bg"
         android:text="Download"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"

@@ -1,4 +1,4 @@
-package com.example.abhijithneilabraham.firebaseandroid;
+package com.inanutshell.abhijithneilabraham.firebaseandroid;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.abhijithneilabraham.firebaseandroid">
+    package="com.inanutshell.abhijithneilabraham.firebaseandroid">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -9,11 +9,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
-        android:label="In a Nutshell"
+        android:label="In A Nutshell"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.inanutshell.abhijithneilabraham.firebaseandroid.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +22,8 @@
         </activity>
 
         <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@drawable/layout_bg" />
+            android:name="inanutshell"
+            android:resource="@xml/layout_bg" />
 
     </application>
 

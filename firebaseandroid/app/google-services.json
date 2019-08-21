@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:613794827591:android:517fe52d87dbcd55",
         "android_client_info": {
-          "package_name": "com.example.abhijithneilabraham.firebaseandroid"
+          "package_name": "com.inanutshell.abhijithneilabraham.firebaseandroid"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "613794827591-3j9bc6d51jpj8jlj694d9ac6kb5j3dc6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.abhijithneilabraham.firebaseandroid",
+            "package_name": "com.inanutshell.abhijithneilabraham.firebaseandroid",
             "certificate_hash": "38ddb9a712de54a1de8a822c58867ae2cdbfda2e"
           }
         },

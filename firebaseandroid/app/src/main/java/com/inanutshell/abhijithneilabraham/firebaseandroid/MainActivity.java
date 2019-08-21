@@ -1,4 +1,4 @@
-package com.example.abhijithneilabraham.firebaseandroid;
+package com.inanutshell.abhijithneilabraham.firebaseandroid;
 
 import android.app.DownloadManager;
 import android.content.Context;
@@ -9,11 +9,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,19 +39,6 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -76,11 +61,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //the firebase objects for storage and database
     StorageReference mStorageReference;
     DatabaseReference mDatabaseReference;
-    ListView listView;
+
     Context context;
     // String filename = "myfile";
-    String userPath="gs://fir-android-c7a0d.appspot.com";
-    String fileName="Summary.pdf";
+    
     String DOWNLOAD_DIR="Download/";
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
@@ -90,26 +74,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.inanutshell.abhijithneilabraham.firebaseandroid.R.layout.activity_main);
 
         MobileAds.initialize(this,
-                getString(R.string.admob_app_id));
-        mAdView = findViewById(R.id.adView);
+                getString(com.inanutshell.abhijithneilabraham.firebaseandroid.R.string.admob_app_id));
+        mAdView = findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         // Display Banner ad
         mAdView.loadAd(adRequest);
         //getting firebase objects
-        downloadbutton=(Button)findViewById(R.id.downloadfile);
+        downloadbutton=(Button)findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.downloadfile);
         mStorageReference = FirebaseStorage.getInstance().getReference();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
         //getting the views
 
-        textViewStatus = (TextView) findViewById(R.id.textViewStatus);
-        editTextFilename = (EditText) findViewById(R.id.editTextFileName);
-        progressBar = (ProgressBar) findViewById(R.id.progressbar);
-        email=(EditText)findViewById(R.id.email);
-        dropdown = (Spinner) findViewById(R.id.wordcount);
+        textViewStatus = (TextView) findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.textViewStatus);
+        editTextFilename = (EditText) findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.editTextFileName);
+        progressBar = (ProgressBar) findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.progressbar);
+        email=(EditText)findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.email);
+        dropdown = (Spinner) findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.wordcount);
 
 
 
@@ -122,7 +106,7 @@ downloadbutton.setOnClickListener(new View.OnClickListener() {
     }
 });
         //attaching listeners to views
-        findViewById(R.id.buttonUploadFile).setOnClickListener(this);
+        findViewById(com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.buttonUploadFile).setOnClickListener(this);
        // findViewById(R.id.textViewUploads).setOnClickListener(this);
        // findViewById(R.id.downloadfile).setOnClickListener(this);
     }
@@ -278,7 +262,7 @@ private void del(){
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.buttonUploadFile:
+            case com.inanutshell.abhijithneilabraham.firebaseandroid.R.id.buttonUploadFile:
                 getPDF();
                 break;
 

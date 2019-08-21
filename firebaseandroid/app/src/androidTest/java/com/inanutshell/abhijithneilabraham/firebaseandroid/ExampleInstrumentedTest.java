@@ -1,4 +1,4 @@
-package com.example.abhijithneilabraham.firebaseandroid;
+package com.inanutshell.abhijithneilabraham.firebaseandroid;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.abhijithneilabraham.firebaseandroid", appContext.getPackageName());
+        assertEquals("com.inanutshell.abhijithneilabraham.firebaseandroid", appContext.getPackageName());
     }
 }
