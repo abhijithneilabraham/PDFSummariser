@@ -1,10 +1,14 @@
 <resources>
     <string name="Word_Count">Word Count</string>
         <string-array name="Word_Count_List">
+
+            <item>20</item>
+            <item>50</item>
+            <item>100</item>
             <item>200</item>
             <item>300</item>
+            <item>400</item>
             <item>500</item>
-            <item>750</item>
-            <item>1000</item>
+            <item>700</item>
         </string-array>
 </resources>
