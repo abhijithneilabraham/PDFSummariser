@@ -1,7 +1,19 @@
+#from __future__ import absolute_import
+#from __future__ import division, print_function, unicode_literals
 import pyrebase
 import os
 from PyPDF2 import PdfFileWriter, PdfFileReader
-from gensim.summarization.summarizer import summarize
+import sumy
+
+
+from sumy.parsers.html import HtmlParser
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lsa import LsaSummarizer as Summarizer
+from sumy.nlp.stemmers import Stemmer
+from sumy.utils import get_stop_words
+
+#from gensim.summarization.summarizer import summarize
 '''
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
@@ -82,7 +94,7 @@ def func(file1,username,wc):
         w_count=int(wc)
         W_Count=0
         if w_count==0:
-            w_count=500
+            w_count=50
         else:
             W_Count=w_count
         counters=0
@@ -91,14 +103,29 @@ def func(file1,username,wc):
                 counters+=1
         if counters<20:
             continue
-        out=summarize(text3,word_count=W_Count)
+        #out=summarize(text3,ratio=(W_Count*.01))
+        LANGUAGE = "english"
+        SENTENCES_COUNT = W_Count
+        parser = PlaintextParser.from_string(text3, Tokenizer(LANGUAGE))
+        stemmer = Stemmer(LANGUAGE)
+        out=""
+        summarizer = Summarizer(stemmer)
+        summarizer.stop_words = get_stop_words(LANGUAGE)
+        for sentence in summarizer(parser.document, SENTENCES_COUNT):
+            out+=str(sentence)
+        if out=="":
+            out = "Not enough words in this page to summarize"
+        Summary=Summary + "\n\n Page No : "+str(v+1) + "\n\n"
         Summary=Summary + " " +out
     lengther=0
     for i in Summary:
         lengther+=1
         if i=='.':
             break
-    out = Summary[lengther:len(Summary)]
+    out1 = Summary[lengther:len(Summary)]
+    out = "Summary\n\n\n Page No: 1\n\n"+out1
+
+
     outfile='final.txt'
     with open(outfile,"w+") as filer:
         filer.write(out)
