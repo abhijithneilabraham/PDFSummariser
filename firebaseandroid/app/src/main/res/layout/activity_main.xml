@@ -39,7 +39,7 @@
         android:layout_marginStart="21dp"
         android:layout_marginBottom="-80dp"
 
-        android:text="Word ratio per page:"
+        android:text="Sentences per page"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <Spinner

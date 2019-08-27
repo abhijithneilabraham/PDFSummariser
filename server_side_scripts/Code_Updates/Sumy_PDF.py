@@ -10,7 +10,7 @@ from sumy.utils import get_stop_words
 
 import fitz
 #import PyMuPDF
-pdf_document = "Filename"
+pdf_document = "joc.pdf"
 text=""
 doc = fitz.open(pdf_document)
 page_Count = doc.pageCount
@@ -21,7 +21,7 @@ for f in range(0,int(page_Count)):
 
 
 LANGUAGE = "english"
-SENTENCES_COUNT = 10
+SENTENCES_COUNT = 20
 
 
 if __name__ == "__main__":

@@ -2,13 +2,14 @@
     <string name="Word_Count">Word Count</string>
         <string-array name="Word_Count_List">
 
+            <item>2</item>
             <item>5</item>
-            <item>10</item>
+            <item>7</item>
+            <item>11</item>
+            <item>15</item>
+            <item>20</item>
             <item>25</item>
-            <item>40</item>
             <item>50</item>
-            <item>75</item>
-            <item>90</item>
         </string-array>
     <string name="admob_app_id">
 ca-app-pub-8148705147334852~3004389988</string>
