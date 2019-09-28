@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "com.inanutshell.abhijithneilabraham.firebaseandroid"
         minSdkVersion 24
-        targetSdkVersion 28
+        targetSdkVersion 26
         versionCode 3
         versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

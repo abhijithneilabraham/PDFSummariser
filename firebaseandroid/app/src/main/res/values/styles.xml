@@ -15,5 +15,9 @@
         <item name="android:background">@android:drawable/editbox_background_normal</item>
         <item name="android:textSize">20sp</item>
     </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
 </resources>

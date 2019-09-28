@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="349dp"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/blue">
 
 
     <EditText
@@ -37,10 +38,10 @@
         android:layout_height="54dp"
         android:layout_alignBottom="@+id/editTextFileName"
         android:layout_marginStart="21dp"
-        android:layout_marginBottom="-80dp"
-
+        android:layout_marginBottom="-138dp"
         android:text="Sentences per page"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Spinner
         android:id="@+id/wordcount"
@@ -48,11 +49,12 @@
         android:layout_width="179dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/wordtext"
-        android:layout_marginStart="170dp"
+        android:layout_marginStart="7dp"
         android:layout_marginBottom="3dp"
+        android:layout_toEndOf="@+id/wordtext"
+        android:background="@color/greyish"
         android:entries="@array/Word_Count_List"
-        android:prompt="@string/Word_Count"
-        android:spinnerMode="dropdown">
+        android:prompt="@string/Word_Count">
 
     </Spinner>
 
@@ -85,10 +87,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextFileName"
 
-
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="94dp"
-        android:layout_marginEnd="1dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="24dp"
         android:background="@xml/layout_bg"
         android:text="Upload PDF"
         android:textAlignment="center"
@@ -100,10 +102,13 @@
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
 
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="337dp"
+        android:layout_alignParentBottom="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="31dp"
+
+        android:layout_marginBottom="80dp"
         android:background="@xml/layout_bg"
         android:text="Download"
         android:textAlignment="center"
@@ -116,11 +121,10 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/buttonUploadFile"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="-3dp"
+        android:layout_marginBottom="26dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/admob_banner_id" />
 
 
 </RelativeLayout>
-

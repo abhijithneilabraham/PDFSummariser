@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.inanutshell.abhijithneilabraham.firebaseandroid.MainActivity">
+        <activity android:name="com.inanutshell.abhijithneilabraham.firebaseandroid.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +25,9 @@
         <meta-data
             android:name="inanutshell"
             android:resource="@xml/layout_bg" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8148705147334852~3004389988"/>
 
     </application>
 
