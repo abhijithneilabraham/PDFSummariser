@@ -14,4 +14,6 @@ The backend,coded using a flask app, is hosted using pythonanywhere.com, and the
 Check for the issues section for tips on contribution.
 
 
+Below is the app link in Playstore with a stable build.
+
 [app link](https://play.google.com/store/apps/details?id=com.inanutshell.abhijithneilabraham.firebaseandroid)
