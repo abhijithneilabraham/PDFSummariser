@@ -202,7 +202,7 @@ private void del(){
                     @SuppressWarnings("VisibleForTests")
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        progressBar.setVisibility(View.GONE);
+                        progressBar.setVisibility(View.INVISIBLE);
                         textViewStatus.setText("File Uploaded Successfully");
 
                         Upload upload = new Upload("test.pdf", taskSnapshot.getStorage().getDownloadUrl().toString());

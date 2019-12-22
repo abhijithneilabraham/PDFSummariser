@@ -7,66 +7,90 @@
     tools:context=".MainActivity"
     android:background="@drawable/blue">
 
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="20dp"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_banner_id"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
     <EditText
         android:id="@+id/email"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="51dp"
+        android:layout_centerHorizontal="true"
         android:hint="Enter your email id"
-        android:textAppearance="@style/MyEditTextStyle" />
+        android:textAppearance="@style/MyEditTextStyle"
+        android:layout_below="@id/textViewStatus"
+        android:layout_marginTop="10dp"/>
 
 
     <EditText
         android:id="@+id/editTextFileName"
         android:layout_width="349dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="110dp"
-
+        android:layout_below="@id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:hint="Enter a name for your file"
         android:textAppearance="@style/MyEditTextStyle" />
 
-    <TextView
-        android:id="@+id/wordtext"
-        android:layout_width="142dp"
-        android:layout_height="54dp"
-        android:layout_alignBottom="@+id/editTextFileName"
-        android:layout_marginStart="21dp"
-        android:layout_marginBottom="-138dp"
-        android:text="Sentences req. per page"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorPrimaryDark" />
+   <LinearLayout
+       android:id="@+id/linear_wrapper"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:layout_below="@id/editTextFileName"
+       android:layout_marginTop="10dp"
+       android:layout_marginStart="20dp"
+       android:layout_marginEnd="20dp">
 
-    <Spinner
-        android:id="@+id/wordcount"
-        style="@style/Animation.AppCompat.DropDownUp"
-        android:layout_width="179dp"
-        android:layout_height="50dp"
-        android:layout_alignBottom="@+id/wordtext"
-        android:layout_marginStart="7dp"
-        android:layout_marginBottom="3dp"
-        android:layout_toEndOf="@+id/wordtext"
-        android:background="@color/greyish"
-        android:entries="@array/Word_Count_List"
-        android:prompt="@string/Word_Count">
+       <TextView
+           android:id="@+id/wordtext"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Sentences req. per page"
+           android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+           android:textColor="@color/colorPrimaryDark"
+           android:layout_gravity="center_vertical"
+           android:layout_weight="1"
+           android:gravity="center"/>
 
-    </Spinner>
+       <Spinner
+           android:id="@+id/wordcount"
+           style="@style/Animation.AppCompat.DropDownUp"
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:layout_marginStart="7dp"
+           android:layout_marginBottom="3dp"
+           android:background="@color/greyish"
+           android:entries="@array/Word_Count_List"
+           android:prompt="@string/Word_Count"
+           android:layout_gravity="center_vertical"
+           android:gravity="center"
+           android:layout_weight="1">
+
+       </Spinner>
+
+   </LinearLayout>
 
 
 
 
     <ProgressBar
         android:id="@+id/progressbar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:visibility="gone" />
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_alignParentTop="true"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorAccent"/>
 
     <TextView
         android:id="@+id/textViewStatus"
@@ -78,53 +102,39 @@
         android:text="No file selected"
         android:textAlignment="center"
         android:gravity="center"
+        android:layout_below="@id/progressbar"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
     <Button
 
         android:id="@+id/buttonUploadFile"
-        android:layout_width="330dp"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextFileName"
-
-        android:layout_alignParentEnd="true"
-
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="183dp"
-        android:layout_marginEnd="39dp"
+        android:layout_below="@id/linear_wrapper"
         android:background="@xml/layout_bg"
         android:text="Upload PDF"
         android:textAlignment="center"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"/>
 
     <Button
         android:id="@+id/downloadfile"
-        android:layout_width="330dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_alignParentStart="true"
-
-
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="31dp"
-        android:layout_marginBottom="206dp"
         android:background="@xml/layout_bg"
         android:text="Download"
         android:textAlignment="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_below="@id/buttonUploadFile"/>
 
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="20dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/admob_banner_id" />
 
 
 </RelativeLayout>
